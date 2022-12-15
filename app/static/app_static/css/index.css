@@ -1,0 +1,24 @@
+
+
+.home_pg {
+    width: 1250px;
+    font-family: sans-serif;
+    margin: 25px auto;
+    color: rgb(229, 226, 226);
+    font-size: 30px;
+    text-align: center;
+}
+
+.home_gotoposts_link {
+    text-decoration: none;
+    color: rgb(151, 150, 150);
+    display: block;
+    width: fit-content;
+    margin: 15px auto;
+    font-family: sans-serif;
+    font-size: 30px;
+    border: 1px solid #000;
+    padding: 12px;
+    border-radius: 15px;
+    background-color: rgb(255, 249, 249);
+}

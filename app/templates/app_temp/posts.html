@@ -1,0 +1,26 @@
+{% extends 'app_temp/base.html' %}
+{% block posts %}
+    <h2>Posts Page</h2>
+    <div class="posts_row">
+        {% for p in posts %}
+        {% if p.is_pub %}
+            <div class="posts_column">
+                {% if not p.image1 %}
+                <a class="image_posts_link" href="{% url 'article' p.slug %}">
+                    <div class="nophoto_posts">
+                            <p class="nophoto_text_posts">Нет фото</p>
+                    </div>
+                </a>
+                {% endif %}
+                {% if p.image1 %}
+                    <a class="image_posts_link" href="{% url 'article' p.slug %}">
+                        <img class="image_posts" src="{{ p.image1.url }}" alt="Post Image">
+                    </a>
+                {% endif %}
+                    <a class="post_link" href="{% url 'article' p.slug %}">Пост №{{ p.id }}</a>    
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <a class="back_link back_link_posts" href="{% url 'index' %}">Назад</a>
+{% endblock posts %}

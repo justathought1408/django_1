@@ -1,0 +1,59 @@
+body {
+    background-color: rgb(80, 76, 76);
+}
+
+h1, h2 {
+    display: block;
+    width: fit-content;
+    margin: 10px auto;
+    font-family: sans-serif;
+    font-size: 45px;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.images_column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

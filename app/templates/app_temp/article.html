@@ -1,0 +1,103 @@
+{% extends 'app_temp/base.html' %}
+{% block article %}
+    {% if not post.is_pub %}
+        <h2>Пост еще не опубликован</h2>
+        <a href="{% url 'posts' %}">Назад</a>
+    {% endif %}
+    {% if post.is_pub %}
+        <h2>{{ post.title }}</h2>
+        <div class="article_row">
+            <div class="desc_column">
+                <p class="description">{{ post.desc|safe }}</p>
+                <a class="back_link" href="{% url 'posts' %}">Назад</a>
+            </div>
+            <div class="images_row">
+                {% if post.image1 %}
+                    <img class="image image_one" src="{{ post.image1.url }}" alt="Post Image1">
+                {% endif %}
+                <div class="images_column">
+                    {% if post.image1 %}
+                        <img class="image image1" src="{{ post.image1.url }}" alt="Post Image1">
+                    {% endif %}
+                    {% if post.image2 %}
+                        <img class="image image2" src="{{ post.image2.url }}" alt="Post Image2">
+                    {% endif %}
+                    {% if post.image3 %}
+                        <img class="image image3" src="{{ post.image3.url }}" alt="Post Image3">
+                    {% endif %}
+                    {% if post.image4 %}
+                        <img class="image image4" src="{{ post.image4.url }}" alt="Post Image4">
+                    {% endif %}
+                    {% if post.image5 %}
+                        <img class="image image5" src="{{ post.image5.url }}" alt="Post Image5">
+                    {% endif %}
+                    {% if not post.image1 %}
+                        <div class="nophoto"><p class="nophoto_text">Нет фото</p></div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% if post.image1 %}
+            <script>
+                const img_one = document.querySelector('.image_one')
+                const img1 = document.querySelector('.image1')
+                const img2 = document.querySelector('.image2')
+                const img3 = document.querySelector('.image3')
+                const img4 = document.querySelector('.image4')
+                const img5 = document.querySelector('.image5')
+                const imgcol = document.querySelectorAll('.images_column')
+                const imgrow = document.querySelector('.images_row')
+            </script>
+        {% endif %}
+        {% if post.image1 and not post.image2 and not post.image3 and not post.image4 and not post.image5 %}
+            <script>
+                img1.style.display = 'none';
+            </script>
+        {% endif %}
+        {% if post.image1 %}
+            <script>
+                img1.addEventListener('click', (event) => {
+                    img1.style.border = '2px solid gold';
+                    [img2, img3, img4, img5].forEach((item) => item ? item.style.border = '0' : false)
+                    img_one.setAttribute('src', '{{ post.image1.url }}')
+                })
+            </script>
+        {% endif %}
+        {% if post.image2 %}
+            <script>
+                img2.addEventListener('click', (event) => {
+                    img2.style.border = '2px solid gold';
+                    [img1, img3, img4, img5].forEach((item) => item ? item.style.border = '0' : false)
+                    img_one.setAttribute('src', '{{ post.image2.url }}');
+                })
+            </script>
+        {% endif %}
+        {% if post.image3 %}
+            <script>
+                img3.addEventListener('click', (event) => {
+                    img3.style.border = '2px solid gold';
+                    [img1, img2, img4, img5].forEach((item) => item ? item.style.border = '0' : false)
+                    img_one.setAttribute('src', '{{ post.image3.url }}')
+                })
+            </script>
+        {% endif %}
+        {% if post.image4 %}
+            <script>
+                img4.addEventListener('click', (event) => {
+                    img4.style.border = '2px solid gold';
+                    [img1, img2, img3, img5].forEach((item) => item ? item.style.border = '0' : false)
+                    img_one.setAttribute('src', '{{ post.image4.url }}')
+                })
+            </script>
+        {% endif %}
+        {% if post.image5 %}
+            <script>
+                img5.addEventListener('click', (event) => {
+                    img5.style.border = '2px solid gold';
+                    [img1, img2, img3, img4].forEach((item) => item ? item.style.border = '0' : false)
+                    img_one.setAttribute('src', '{{ post.image5.url }}')
+                })
+            </script>
+        {% endif %}
+    {% endif %}
+{% endblock article %}
