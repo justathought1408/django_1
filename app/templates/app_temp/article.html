@@ -9,7 +9,7 @@
         <div class="article_row">
             <div class="desc_column">
                 <p class="description">{{ post.desc|safe }}</p>
-                <a class="back_link" href="{% url 'posts' %}">Назад</a>
+                <a class="back_link" href="{% url 'posts' %}">Back</a>
             </div>
             <div class="images_row">
                 {% if post.image1 %}
@@ -32,7 +32,7 @@
                         <img class="image image5" src="{{ post.image5.url }}" alt="Post Image5">
                     {% endif %}
                     {% if not post.image1 %}
-                        <div class="nophoto"><p class="nophoto_text">Нет фото</p></div>
+                        <div class="nophoto"><p class="nophoto_text">No Photo</p></div>
                     {% endif %}
                 </div>
             </div>
