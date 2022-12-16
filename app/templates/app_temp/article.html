@@ -1,9 +1,5 @@
 {% extends 'app_temp/base.html' %}
 {% block article %}
-    {% if not post.is_pub %}
-        <h2>Пост еще не опубликован</h2>
-        <a href="{% url 'posts' %}">Назад</a>
-    {% endif %}
     {% if post.is_pub %}
         <h2>{{ post.title }}</h2>
         <div class="article_row">
