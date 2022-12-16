@@ -12,7 +12,7 @@ class FM(models.Model):
     is_pub = models.BooleanField(default=False, verbose_name='Published')
 
     def __str__(self):
-        return self.title 
+        return self.title
 
     class Meta:
         verbose_name_plural = 'Model'
