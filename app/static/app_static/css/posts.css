@@ -53,6 +53,13 @@
     font-size: 30px;
 }
 
+.vac_inner {
+    border: 1px solid white;
+    border-radius: 15px;
+    margin-top: 15px;
+    width: 950px;
+}
+
 .vac_column {
     max-width: 950px;
     margin: 25px auto;
@@ -71,8 +78,6 @@
 
 .text_vac {
     max-width: 950px;
-    border: 1px solid white;
-    border-radius: 15px;
     margin: 25px auto;
     min-height: 200px;
     text-align: left; 

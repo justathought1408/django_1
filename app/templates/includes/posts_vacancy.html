@@ -1,0 +1,18 @@
+{% if v.title_vac and v.text_vac and v.is_pub_vac %}
+    <div class="vac_column">
+        <h2 class="vac_title">{{ v.title_vac }}</h2>
+        <div class="vac_inner">
+            {% if v.image_vac %}
+                <img class="photo_vac" src="{{ v.image_vac.url }}" alt="">
+            {% endif %}
+            <div class="text_vac">
+                <p style="margin: 0;">
+                    {{ v.text_vac|safe|truncatewords:55 }}
+                </p>
+                <a class="vac_link" href="{% url 'vacancy' v.slug_vac %}">
+                    More...
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
