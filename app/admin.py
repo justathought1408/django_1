@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import FM
+from .models import FM, Vacancy
 
 class FMAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'desc', 'image1', 'image2', 'image3', 'image4', 'image5', 'slug', 'is_pub'] 
-    search_fields = ['id', 'title', 'desc', 'image1', 'image2', 'image3', 'image4', 'image5', 'slug', 'is_pub'] 
-    list_editable = ['title', 'desc', 'image1', 'image2', 'image3', 'image4', 'image5', 'slug', 'is_pub']
+    list_display = ['title', 'price','images_count', 'is_pub'] 
+    search_fields = ['id', 'title', ] 
+    list_editable = ['is_pub', 'price']
     actions = ['set_pub', 'delete_desc', 'delete_photos']
 
     @admin.action(description='Publish')
@@ -23,3 +23,4 @@ class FMAdmin(admin.ModelAdmin):
         self.message_user(request, 'Photos Removed')
 
 admin.site.register(FM, FMAdmin)
+admin.site.register(Vacancy)

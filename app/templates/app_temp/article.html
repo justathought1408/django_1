@@ -5,6 +5,9 @@
         <div class="article_row">
             <div class="desc_column">
                 <p class="description">{{ post.desc|safe }}</p>
+                <p class="description_date">Date | Time : </p>
+                <p class="description_date">{{ post.updated|date:"d.m.Y" }} | {{ post.updated|date:"H:i" }}</p>
+                <p class="description_price">{{ post.price }} $ <span class="price_through">{{ post.price|add:'700' }} $</span></p>
                 <a class="back_link" href="{% url 'posts' %}">Back</a>
             </div>
             <div class="images_row">

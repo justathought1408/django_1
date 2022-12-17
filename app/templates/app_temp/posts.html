@@ -1,9 +1,30 @@
 {% extends 'app_temp/base.html' %}
 {% block posts %}
-    <h2>Posts Page</h2>
+    <h2>Products Page</h2>
+    {% for v in vacancies %}
+        {% if v.is_top %}
+            {% if v.title_vac and v.text_vac and v.is_pub_vac %}
+                <div class="vac_column">
+                    <h2 class="vac_title">{{ v.title_vac }}</h2>
+                    {% if v.image_vac %}
+                        <img class="photo_vac" src="{{ v.image_vac.url }}" alt="">
+                    {% endif %}
+                    <div class="text_vac">
+                        <p style="margin: 0;">
+                            {{ v.text_vac|safe|truncatewords:55 }}
+                        </p>
+                        <a class="vac_link" href="{% url 'vacancy' v.slug_vac %}">
+                            More...
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+            <h2>Products:</h2>
+        {% endif %}
+    {% endfor %}
     <div class="posts_row">
         {% for p in posts %}
-        {% if p.is_pub %}
+        {% if p.is_pub and not p.is_vac %}
             <div class="posts_column">
                 {% if not p.image1 %}
                 <a class="image_posts_link" href="{% url 'article' p.slug %}">
@@ -17,10 +38,30 @@
                         <img class="image_posts" src="{{ p.image1.url }}" alt="Post Image">
                     </a>
                 {% endif %}
-                    <a class="post_link" href="{% url 'article' p.slug %}">Post №{{ p.id }}</a>    
+                    <a class="post_link" href="{% url 'article' p.slug %}">Product №{{ p.id }}</a>    
             </div>
             {% endif %}
         {% endfor %}
     </div>
+    {% for v in vacancies %}
+        {% if not v.is_top %}
+            {% if v.title_vac and v.text_vac and v.is_pub_vac %}
+                <div class="vac_column">
+                    <h2 class="vac_title">{{ v.title_vac }}</h2>
+                    {% if v.image_vac %}
+                        <img class="photo_vac" src="{{ v.image_vac.url }}" alt="">
+                    {% endif %}
+                    <div class="text_vac">
+                        <p style="margin: 0;">
+                            {{ v.text_vac|safe|truncatewords:55 }}
+                        </p>
+                        <a class="vac_link" href="{% url 'vacancy' v.slug_vac %}">
+                            More...
+                        </a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
     <a class="back_link back_link_posts" href="{% url 'index' %}">Back</a>
 {% endblock posts %}

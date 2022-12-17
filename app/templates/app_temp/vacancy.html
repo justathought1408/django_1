@@ -1,0 +1,13 @@
+{% extends 'app_temp/base.html' %}
+{% block vacancies %}
+    <h1>{{ vac.title_vac }}</h1>
+    {% if vac.image_vac %}
+        <img class="photo_vac" src="{{ vac.image_vac.url }}" alt="">
+    {% endif %}
+    <div class="text_vac_vacancies">
+        <p style="margin: 0;">
+            {{ vac.text_vac|safe }}
+        </p>
+    </div>
+    <a class="back_link" href="{% url 'posts' %}">Back</a>
+{% endblock vacancies %}
